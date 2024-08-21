@@ -11,6 +11,9 @@
     "plugin:@next/next/recommended",
     "plugin:prettier/recommended"
   ],
+  "plugins": [
+    "prettier"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
