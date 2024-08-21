@@ -1,7 +1,3 @@
 export default function Home() {
-  return (
-    <main>
-      Test
-    </main>
-  );
+  return <main className='ytes'>Test</main>;
 }
