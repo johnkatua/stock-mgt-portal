@@ -1,8 +1,10 @@
+'use client';
+
 import styles from '../../page.module.css';
 import LoginForm from './LoginForm';
 
 const LoginPage = () => {
-  const handleSubmit = (values: any) => {
+  const handleSubmit = (values: { email: string; password: string }) => {
     console.log(values);
   };
   return (
