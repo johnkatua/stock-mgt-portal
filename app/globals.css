@@ -3,3 +3,9 @@
   padding: 0;
   margin: 0;
 }
+
+:root {
+  --primary-color: #ea580c;
+  --dark-white: #fff7ed;
+  --dark-black: #0c0a09;
+}

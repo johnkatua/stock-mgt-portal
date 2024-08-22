@@ -1,9 +1,7 @@
-:root {
-  --primary-color: #ea580c;
-  --dark-white: #fff7ed;
-  --dark-black: #0c0a09;
-}
-
-.login-page {
+.loginPage {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
   background-color: var(--dark-black);
+  color: var(--dark-white);
 }

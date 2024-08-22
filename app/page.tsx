@@ -1,9 +1,5 @@
-import { Button } from 'antd';
+import LoginContainer from './components/login';
 
 export default function Home() {
-  return (
-    <main className=''>
-      <Button type='primary'>Welcome</Button>
-    </main>
-  );
+  return <LoginContainer />;
 }
