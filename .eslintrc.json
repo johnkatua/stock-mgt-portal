@@ -9,11 +9,14 @@
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:@next/next/recommended",
+    // "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
   "plugins": [
-    "prettier"
+    "prettier",
+    "@typescript-eslint"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -28,6 +31,12 @@
         "endOfLine": "auto"
       }
     ],
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ]
   }
 }
