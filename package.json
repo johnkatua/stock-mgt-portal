@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "lint:fix": "eslint . --fix",
+    "lint:strict": "eslint */**/*.{js,jsx,ts,tsx}",
+    "format": "prettier --write */**/*.{js,jsx,ts,tsx,scss,css,md}",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -27,28 +29,5 @@
     "lint-staged": "^15.2.9",
     "prettier": "^3.3.3",
     "typescript": "^5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-stages": {
-    "*.js": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.jsx": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.ts": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.tsx": [
-      "eslint --fix",
-      "prettier --write"
-    ]
   }
 }
