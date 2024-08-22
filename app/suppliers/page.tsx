@@ -1,7 +1,12 @@
 import React from 'react';
 
 const Suppliers = () => {
-  return <div>Suppliers</div>;
+  return (
+    <div>
+      Suppliers
+      <span>{'One'}</span>
+    </div>
+  );
 };
 
 export default Suppliers;
