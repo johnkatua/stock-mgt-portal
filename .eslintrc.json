@@ -9,7 +9,7 @@
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:@next/next/recommended",
-    // "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
   "plugins": [
