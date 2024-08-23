@@ -2,6 +2,7 @@ import { FC } from 'react';
 import CustomForm from '../shared/CustomForm';
 import CustomFormItem from '../shared/CustomFormItem';
 import CustomInput from '../shared/CustomInput';
+import { Button } from 'antd';
 
 type HandleSubmitType = (_values: { email: string; password: string }) => void;
 
@@ -35,6 +36,9 @@ const LoginForm: FC<LoginFormProps> = ({ handleSubmit }) => {
         ]}
       >
         <CustomInput placeholder='Password' type='password' />
+      </CustomFormItem>
+      <CustomFormItem>
+        <Button style={{ width: '100%' }}>Submit</Button>
       </CustomFormItem>
     </CustomForm>
   );

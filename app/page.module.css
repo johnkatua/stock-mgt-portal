@@ -11,8 +11,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border: 1px solid var(--dark-white);
-  min-width: 400px;
+  min-width: 600px;
   padding: 10px;
   border-radius: 5px;
 }

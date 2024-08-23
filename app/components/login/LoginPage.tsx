@@ -11,7 +11,10 @@ const LoginPage = () => {
   return (
     <main className={styles.loginPage}>
       <div className={styles.loginWrapper}>
-        <Typography.Title style={{ color: 'white', marginBottom: '40px' }}>
+        <Typography.Title
+          level={2}
+          style={{ color: 'white', marginBottom: '40px' }}
+        >
           Lakehouse
         </Typography.Title>
         <div
