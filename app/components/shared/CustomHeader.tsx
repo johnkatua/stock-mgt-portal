@@ -18,6 +18,7 @@ const CustomHeader: FC<CustomHeaderProps> = ({ children }) => {
         alignItems: 'center',
         color: 'var(--primary-color)',
         backgroundColor: 'var(--dark-white)',
+        padding: '24px',
       }}
     >
       {children}
