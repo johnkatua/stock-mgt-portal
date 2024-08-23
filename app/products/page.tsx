@@ -5,7 +5,7 @@ import CustomLayout from '../components/shared/CustomLayout';
 
 const Products = () => {
   return (
-    <CustomLayout>
+    <CustomLayout header={<p>One</p>}>
       <div>Products</div>
     </CustomLayout>
   );

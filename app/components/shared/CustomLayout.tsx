@@ -10,9 +10,10 @@ const { Content } = Layout;
 
 interface CustomLayoutProps {
   children: ReactNode;
+  header: ReactNode;
 }
 
-const CustomLayout: FC<CustomLayoutProps> = ({ children }) => {
+const CustomLayout: FC<CustomLayoutProps> = ({ header, children }) => {
   const router = useRouter();
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -48,8 +49,17 @@ const CustomLayout: FC<CustomLayoutProps> = ({ children }) => {
             backgroundColor: 'var(--dark-white)',
           }}
         >
-          <h3>Breadcrumb</h3>
-          <Content>{children}</Content>
+          <div style={{ marginBottom: '20px' }}>{header}</div>
+          <Content
+            style={{
+              backgroundColor: 'white',
+              padding: '10px',
+              borderRadius: '10px',
+              boxShadow: '0 10px 15px -10px var(--primary-color)',
+            }}
+          >
+            {children}
+          </Content>
         </Layout>
       </Layout>
     </Layout>

@@ -3,7 +3,7 @@ import CustomLayout from '../components/shared/CustomLayout';
 
 const Dashboard = () => {
   return (
-    <CustomLayout>
+    <CustomLayout header={'Two'}>
       <div>Dashboard</div>
     </CustomLayout>
   );

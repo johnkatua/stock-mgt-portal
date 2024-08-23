@@ -1,28 +1,54 @@
 import { Menu, MenuProps } from 'antd';
 import { useRouter } from 'next/navigation';
 import Sider from 'antd/es/layout/Sider';
-import React from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
+
+const pathMappers: Record<string, string> = {
+  '1': '/dashboard',
+  '2': '/products',
+  '3': '/suppliers',
+};
 
 const CustomSider = () => {
   const router = useRouter();
+  // const pathname = usePathname();
+  const [activeKey, setActiveKey] = useState('');
 
-  const items: MenuProps['items'] = [
-    {
-      key: '1',
-      label: 'Dashboard',
-      onClick: () => router.push('/dashboard'),
-    },
-    {
-      key: 2,
-      label: 'Products',
-      onClick: () => router.push('/products'),
-    },
-    {
-      key: 3,
-      label: 'Suppliers',
-      onClick: () => router.push('/suppliers'),
-    },
-  ];
+  const handleNavigate = (key: string) => {
+    router.push(pathMappers[key]);
+    setActiveKey(key);
+  };
+
+  useEffect(() => {
+    // const mappedKey = pathMappers[activeKey];
+    if (activeKey) {
+      setActiveKey(activeKey);
+    }
+    console.log('here', activeKey);
+  }, [activeKey, router]);
+
+  console.log(activeKey);
+
+  const items: MenuProps['items'] = useMemo(
+    () => [
+      {
+        key: '1',
+        label: 'Dashboard',
+        path: '/dashboard',
+      },
+      {
+        key: 2,
+        label: 'Products',
+        path: '/products',
+      },
+      {
+        key: 3,
+        label: 'Suppliers',
+        path: '/suppliers',
+      },
+    ],
+    [router]
+  );
   return (
     <Sider
       style={{
@@ -38,7 +64,9 @@ const CustomSider = () => {
     >
       <Menu
         items={items}
+        onClick={(e) => handleNavigate(e.key)}
         mode='inline'
+        selectedKeys={[activeKey]}
         defaultSelectedKeys={['1']}
         style={{
           backgroundColor: 'var(--primary-color)',
