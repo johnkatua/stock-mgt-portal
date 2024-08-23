@@ -18,13 +18,11 @@ const CustomForm: FC<CustomFormProps> = ({ onFinish, children, form }) => {
           Input: {
             hoverBorderColor: 'var(--dark-primary-color)',
             activeBorderColor: 'var(--dark-primary-color)',
-            activeBg: 'green',
-            hoverBg: 'red',
           },
-          Button: {
-            defaultHoverBorderColor: 'var(--dark-primary-color)',
-            defaultActiveBorderColor: 'var(--dark-primary-color)',
-          },
+          // Button: {
+          //   defaultHoverBorderColor: 'var(--dark-primary-color)',
+          //   defaultActiveBorderColor: 'var(--dark-primary-color)',
+          // },
         },
       }}
     >

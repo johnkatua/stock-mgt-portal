@@ -10,7 +10,7 @@ const LoginPage = () => {
   const [form] = Form.useForm();
   const handleSubmit = (values: { email: string; password: string }) => {
     console.log(values);
-    router.push('/products');
+    router.push('/dashboard');
   };
   return (
     <main className={styles.loginPage}>

@@ -11,6 +11,7 @@ const CustomPageTitle: FC<CustomPageTitleProps> = ({ title, children }) => {
       style={{
         display: 'flex',
         justifyContent: 'space-between',
+        alignItems: 'center',
       }}
     >
       <h3>{title}</h3>

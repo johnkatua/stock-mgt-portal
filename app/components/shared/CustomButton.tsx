@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from 'antd';
+import { Button, ButtonProps, ConfigProvider } from 'antd';
 import { FC } from 'react';
 
 interface CustomButtonProps extends ButtonProps {
@@ -11,9 +11,20 @@ const CustomButton: FC<CustomButtonProps> = ({
   ...rest
 }) => {
   return (
-    <Button type={type} {...rest}>
-      {text}
-    </Button>
+    <ConfigProvider
+      theme={{
+        components: {
+          Button: {
+            defaultHoverBorderColor: 'var(--dark-primary-color)',
+            defaultActiveBorderColor: 'var(--dark-primary-color)',
+          },
+        },
+      }}
+    >
+      <Button type={type} {...rest}>
+        {text}
+      </Button>
+    </ConfigProvider>
   );
 };
 

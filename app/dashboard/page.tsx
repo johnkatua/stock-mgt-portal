@@ -5,7 +5,7 @@ import CustomPageTitle from '../components/shared/CustomPageTitle';
 const Dashboard = () => {
   return (
     <CustomLayout header={<CustomPageTitle title='Dashboard' />}>
-      <div>Dashboard</div>
+      <div>WIP</div>
     </CustomLayout>
   );
 };
