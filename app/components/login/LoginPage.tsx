@@ -1,12 +1,16 @@
 'use client';
 
-import { Typography } from 'antd';
+import { Typography, Form } from 'antd';
+import { useRouter } from 'next/navigation';
 import styles from '../../page.module.css';
 import LoginForm from './LoginForm';
 
 const LoginPage = () => {
+  const router = useRouter();
+  const [form] = Form.useForm();
   const handleSubmit = (values: { email: string; password: string }) => {
     console.log(values);
+    router.push('/products');
   };
   return (
     <main className={styles.loginPage}>
@@ -22,7 +26,7 @@ const LoginPage = () => {
             width: '100%',
           }}
         >
-          <LoginForm handleSubmit={handleSubmit} />
+          <LoginForm handleSubmit={handleSubmit} form={form} />
         </div>
       </div>
     </main>

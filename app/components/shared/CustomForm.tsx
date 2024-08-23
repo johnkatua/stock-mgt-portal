@@ -6,7 +6,7 @@ interface CustomFormProps extends FormProps {
   children: ReactNode;
 }
 
-const CustomForm: FC<CustomFormProps> = ({ onFinish, children }) => {
+const CustomForm: FC<CustomFormProps> = ({ onFinish, children, form }) => {
   return (
     <ConfigProvider
       theme={{
@@ -17,7 +17,7 @@ const CustomForm: FC<CustomFormProps> = ({ onFinish, children }) => {
         },
       }}
     >
-      <Form onFinish={onFinish} layout='vertical'>
+      <Form form={form} onFinish={onFinish} layout='vertical'>
         {children}
       </Form>
     </ConfigProvider>

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { FormProps } from 'antd';
 import CustomForm from '../shared/CustomForm';
 import CustomFormItem from '../shared/CustomFormItem';
 import CustomInput from '../shared/CustomInput';
@@ -6,13 +7,13 @@ import CustomButton from '../shared/CustomButton';
 
 type HandleSubmitType = (_values: { email: string; password: string }) => void;
 
-interface LoginFormProps {
+interface LoginFormProps extends FormProps {
   handleSubmit: HandleSubmitType;
 }
 
-const LoginForm: FC<LoginFormProps> = ({ handleSubmit }) => {
+const LoginForm: FC<LoginFormProps> = ({ handleSubmit, form }) => {
   return (
-    <CustomForm onFinish={handleSubmit}>
+    <CustomForm onFinish={handleSubmit} form={form}>
       <CustomFormItem
         name='email'
         label='Email Address'
@@ -42,7 +43,11 @@ const LoginForm: FC<LoginFormProps> = ({ handleSubmit }) => {
         />
       </CustomFormItem>
       <CustomFormItem>
-        <CustomButton text='Login' style={{ width: '100%', padding: '18px' }} />
+        <CustomButton
+          htmlType='submit'
+          text='Login'
+          style={{ width: '100%', padding: '18px' }}
+        />
       </CustomFormItem>
     </CustomForm>
   );
