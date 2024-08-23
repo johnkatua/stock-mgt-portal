@@ -2,7 +2,7 @@
   display: grid;
   place-items: center;
   min-height: 100vh;
-  background-color: var(--dark-black);
+  background-color: var(--primary-color);
   color: var(--dark-white);
 }
 

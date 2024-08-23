@@ -46,7 +46,12 @@ const LoginForm: FC<LoginFormProps> = ({ handleSubmit, form }) => {
         <CustomButton
           htmlType='submit'
           text='Login'
-          style={{ width: '100%', padding: '18px' }}
+          style={{
+            width: '100%',
+            padding: '18px',
+            fontSize: '18px',
+            color: 'var(--primary-color)',
+          }}
         />
       </CustomFormItem>
     </CustomForm>
