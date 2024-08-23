@@ -14,7 +14,8 @@ const CustomHeader: FC<CustomHeaderProps> = ({ children }) => {
         zIndex: 1,
         width: '100%',
         display: 'flex',
-        color: '#fff7ed',
+        color: 'var(--primary-color)',
+        backgroundColor: 'var(--dark-white)',
       }}
     >
       {children}

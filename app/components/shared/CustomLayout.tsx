@@ -1,8 +1,9 @@
-import { Layout, Menu } from 'antd';
+import { Layout } from 'antd';
 import { FC, ReactNode } from 'react';
 import CustomHeader from './CustomHeader';
+import CustomSider from './CustomSider';
 
-const { Content, Sider } = Layout;
+const { Content } = Layout;
 
 interface CustomLayoutProps {
   children: ReactNode;
@@ -16,15 +17,21 @@ const CustomLayout: FC<CustomLayoutProps> = ({ children }) => {
         <div>User</div>
       </CustomHeader>
       <Layout>
-        <Sider width={200}>
-          <Menu
-            style={{ height: '100%', backgroundColor: 'gray' }}
-            items={[]}
-          />
-        </Sider>
+        <CustomSider />
         <Layout
           style={{
+            position: 'absolute',
             padding: '0 24px 24px',
+            left: '200px',
+            right: 0,
+            bottom: 0,
+            width: 'calc(100% - 200px)',
+            height: 'calc(100% - 64px)',
+            overflow: 'auto',
+            scrollbarWidth: 'thin',
+            scrollbarColor: 'unset',
+            insetInlineEnd: 0,
+            backgroundColor: 'var(--dark-white)',
           }}
         >
           <h3>Breadcrumb</h3>
