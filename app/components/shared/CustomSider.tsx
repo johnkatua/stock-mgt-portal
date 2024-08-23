@@ -1,24 +1,28 @@
 import { Menu, MenuProps } from 'antd';
+import { useRouter } from 'next/navigation';
 import Sider from 'antd/es/layout/Sider';
 import React from 'react';
 
-const items: MenuProps['items'] = [
-  {
-    key: '1',
-    label: 'Home',
-    onClick: () => console.log('heelo'),
-  },
-  {
-    key: 2,
-    label: 'Products',
-  },
-  {
-    key: 3,
-    label: 'Suppliers',
-  },
-];
-
 const CustomSider = () => {
+  const router = useRouter();
+
+  const items: MenuProps['items'] = [
+    {
+      key: '1',
+      label: 'Dashboard',
+      onClick: () => router.push('/dashboard'),
+    },
+    {
+      key: 2,
+      label: 'Products',
+      onClick: () => router.push('/products'),
+    },
+    {
+      key: 3,
+      label: 'Suppliers',
+      onClick: () => router.push('/suppliers'),
+    },
+  ];
   return (
     <Sider
       style={{

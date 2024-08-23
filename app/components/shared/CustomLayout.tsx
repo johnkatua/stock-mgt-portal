@@ -1,7 +1,10 @@
-import { Layout } from 'antd';
+'use client';
+
+import { Avatar, Layout, Popover } from 'antd';
 import { FC, ReactNode } from 'react';
 import CustomHeader from './CustomHeader';
 import CustomSider from './CustomSider';
+import { useRouter } from 'next/navigation';
 
 const { Content } = Layout;
 
@@ -10,11 +13,22 @@ interface CustomLayoutProps {
 }
 
 const CustomLayout: FC<CustomLayoutProps> = ({ children }) => {
+  const router = useRouter();
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <CustomHeader>
         <h2>Lakehouse</h2>
-        <div>User</div>
+        <Popover content={<p onClick={() => router.push('/')}>Logout</p>}>
+          <Avatar
+            style={{
+              backgroundColor: 'var(--primary-color)',
+              cursor: 'pointer',
+            }}
+            size={'large'}
+          >
+            JK
+          </Avatar>
+        </Popover>
       </CustomHeader>
       <Layout>
         <CustomSider />

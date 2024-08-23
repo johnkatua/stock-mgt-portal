@@ -1,13 +1,12 @@
 import React from 'react';
 import CustomLayout from '../components/shared/CustomLayout';
 
-const Suppliers = () => {
+const Dashboard = () => {
   return (
     <CustomLayout>
-      Suppliers
-      <span>{'One'}</span>
+      <div>Dashboard</div>
     </CustomLayout>
   );
 };
 
-export default Suppliers;
+export default Dashboard;
