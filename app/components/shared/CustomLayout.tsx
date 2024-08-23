@@ -1,7 +1,8 @@
 import { Layout, Menu } from 'antd';
 import { FC, ReactNode } from 'react';
+import CustomHeader from './CustomHeader';
 
-const { Header, Content, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 interface CustomLayoutProps {
   children: ReactNode;
@@ -10,15 +11,10 @@ interface CustomLayoutProps {
 const CustomLayout: FC<CustomLayoutProps> = ({ children }) => {
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Header
-        style={{
-          display: 'flex',
-          color: 'white',
-        }}
-      >
+      <CustomHeader>
         <h2>Lakehouse</h2>
         <div>User</div>
-      </Header>
+      </CustomHeader>
       <Layout>
         <Sider width={200}>
           <Menu
