@@ -1,5 +1,6 @@
 'use client';
 
+import { Typography } from 'antd';
 import styles from '../../page.module.css';
 import LoginForm from './LoginForm';
 
@@ -10,8 +11,16 @@ const LoginPage = () => {
   return (
     <main className={styles.loginPage}>
       <div className={styles.loginWrapper}>
-        <h1>Lakehouse</h1>
-        <LoginForm handleSubmit={handleSubmit} />
+        <Typography.Title style={{ color: 'white', marginBottom: '40px' }}>
+          Lakehouse
+        </Typography.Title>
+        <div
+          style={{
+            width: '100%',
+          }}
+        >
+          <LoginForm handleSubmit={handleSubmit} />
+        </div>
       </div>
     </main>
   );

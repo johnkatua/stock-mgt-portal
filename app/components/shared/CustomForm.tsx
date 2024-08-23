@@ -1,4 +1,4 @@
-import { Form, FormProps } from 'antd';
+import { ConfigProvider, Form, FormProps } from 'antd';
 import { FC, ReactNode } from 'react';
 
 interface CustomFormProps extends FormProps {
@@ -7,7 +7,21 @@ interface CustomFormProps extends FormProps {
 }
 
 const CustomForm: FC<CustomFormProps> = ({ onFinish, children }) => {
-  return <Form onFinish={onFinish}>{children}</Form>;
+  return (
+    <ConfigProvider
+      theme={{
+        components: {
+          Form: {
+            labelColor: 'white',
+          },
+        },
+      }}
+    >
+      <Form onFinish={onFinish} layout='vertical'>
+        {children}
+      </Form>
+    </ConfigProvider>
+  );
 };
 
 export default CustomForm;
