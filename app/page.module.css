@@ -1,0 +1,17 @@
+.loginPage {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: var(--primary-color);
+  color: var(--dark-white);
+}
+
+.loginWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 600px;
+  padding: 10px;
+  border-radius: 5px;
+}
