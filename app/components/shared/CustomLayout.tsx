@@ -5,6 +5,7 @@ import { FC, ReactNode } from 'react';
 import CustomHeader from './CustomHeader';
 import CustomSider from './CustomSider';
 import { useRouter } from 'next/navigation';
+import CustomButton from './CustomButton';
 
 const { Content } = Layout;
 
@@ -15,11 +16,27 @@ interface CustomLayoutProps {
 
 const CustomLayout: FC<CustomLayoutProps> = ({ header, children }) => {
   const router = useRouter();
+
+  const handleLogout = () => {
+    router.push('/');
+    localStorage.removeItem('access_token');
+  };
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <CustomHeader>
         <h2>Lakehouse</h2>
-        <Popover content={<p onClick={() => router.push('/')}>Logout</p>}>
+        <Popover
+          content={
+            <CustomButton
+              text='Logout'
+              onClick={handleLogout}
+              style={{
+                backgroundColor: 'var(--primary-color)',
+                color: 'var(--dark-white)',
+              }}
+            />
+          }
+        >
           <Avatar
             style={{
               backgroundColor: 'var(--primary-color)',
