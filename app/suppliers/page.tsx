@@ -4,11 +4,9 @@ import React from 'react';
 import CustomLayout from '../components/shared/CustomLayout';
 import CustomPageTitle from '../components/shared/CustomPageTitle';
 import CustomButton from '../components/shared/CustomButton';
-import { useGetSuppliersQuery } from '../services/suppliers';
+import ViewSuppliers from './ViewSuppliers';
 
 const Suppliers = () => {
-  const { data: suppliers } = useGetSuppliersQuery();
-  console.log(suppliers);
   return (
     <CustomLayout
       header={
@@ -23,8 +21,7 @@ const Suppliers = () => {
         </CustomPageTitle>
       }
     >
-      Suppliers
-      <span>{'One'}</span>
+      <ViewSuppliers />
     </CustomLayout>
   );
 };

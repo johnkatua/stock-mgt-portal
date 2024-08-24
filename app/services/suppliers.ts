@@ -1,12 +1,16 @@
 import { api } from './api';
 
-interface SupplierResponse {
-  data: string;
+interface Supplier {
+  _id: string;
+  supplier_name: string;
+  contact_name: string;
+  phone: string;
+  address: string;
 }
 
 const suppliersApi = api.injectEndpoints({
   endpoints: ({ query }) => ({
-    getSuppliers: query<SupplierResponse, void>({
+    getSuppliers: query<Supplier[], void>({
       query: () => '/suppliers',
     }),
   }),
