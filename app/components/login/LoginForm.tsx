@@ -9,9 +9,10 @@ type HandleSubmitType = (_values: { email: string; password: string }) => void;
 
 interface LoginFormProps extends FormProps {
   handleSubmit: HandleSubmitType;
+  loading: boolean;
 }
 
-const LoginForm: FC<LoginFormProps> = ({ handleSubmit, form }) => {
+const LoginForm: FC<LoginFormProps> = ({ handleSubmit, form, loading }) => {
   return (
     <CustomForm onFinish={handleSubmit} form={form}>
       <CustomFormItem
@@ -46,6 +47,8 @@ const LoginForm: FC<LoginFormProps> = ({ handleSubmit, form }) => {
         <CustomButton
           htmlType='submit'
           text='Login'
+          loading={loading}
+          // disabled={true}
           style={{
             width: '100%',
             padding: '18px',

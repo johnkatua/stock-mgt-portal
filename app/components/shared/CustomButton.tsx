@@ -17,6 +17,7 @@ const CustomButton: FC<CustomButtonProps> = ({
           Button: {
             defaultHoverBorderColor: 'var(--dark-primary-color)',
             defaultActiveBorderColor: 'var(--dark-primary-color)',
+            colorBgContainerDisabled: 'var(--dark-white)',
           },
         },
       }}

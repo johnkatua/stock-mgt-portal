@@ -6,23 +6,30 @@ interface LoginRequest {
 }
 
 interface LoginResponse {
-  token: string;
+  data: {
+    access_token: string;
+  };
 }
 
 const authApi = api.injectEndpoints({
   endpoints: ({ mutation }) => ({
     login: mutation<LoginResponse, LoginRequest>({
       query: (body) => ({
-        url: '/login',
+        url: '/auth/login',
         method: 'POST',
         body,
       }),
       async onQueryStarted(_, { queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-          localStorage.setItem('access_token', data.token);
+          if (data && data.data && data.data.access_token) {
+            const access_token = data.data.access_token;
+            localStorage.setItem('access_token', access_token);
+          } else {
+            console.error('No access token received.');
+          }
         } catch (error) {
-          console.log('Login failed: ', error);
+          console.error('Login failed: ', error);
         }
       },
     }),
