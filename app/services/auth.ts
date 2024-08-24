@@ -6,9 +6,7 @@ interface LoginRequest {
 }
 
 interface LoginResponse {
-  data: {
-    access_token: string;
-  };
+  access_token: string;
 }
 
 const authApi = api.injectEndpoints({
@@ -22,8 +20,8 @@ const authApi = api.injectEndpoints({
       async onQueryStarted(_, { queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-          if (data && data.data && data.data.access_token) {
-            const access_token = data.data.access_token;
+          if (data && data.access_token) {
+            const access_token = data.access_token;
             localStorage.setItem('access_token', access_token);
           } else {
             console.error('No access token received.');
