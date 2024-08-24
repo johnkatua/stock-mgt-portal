@@ -17,6 +17,14 @@ const authApi = api.injectEndpoints({
         method: 'POST',
         body,
       }),
+      async onQueryStarted(_, { queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          localStorage.setItem('access_token', data.token);
+        } catch (error) {
+          console.log('Login failed: ', error);
+        }
+      },
     }),
   }),
   overrideExisting: false,
