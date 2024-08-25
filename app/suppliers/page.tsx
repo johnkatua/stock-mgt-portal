@@ -1,9 +1,16 @@
-import React from 'react';
+'use client';
+
+import { useState } from 'react';
 import CustomLayout from '../components/shared/CustomLayout';
 import CustomPageTitle from '../components/shared/CustomPageTitle';
 import CustomButton from '../components/shared/CustomButton';
+import ViewSuppliers from './ViewSuppliers';
+import AddSupplier from './AddSupplier';
 
 const Suppliers = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClose = () => setIsOpen(false);
   return (
     <CustomLayout
       header={
@@ -14,12 +21,13 @@ const Suppliers = () => {
               backgroundColor: 'var(--primary-color)',
               color: 'var(--dark-white)',
             }}
+            onClick={() => setIsOpen(true)}
           />
         </CustomPageTitle>
       }
     >
-      Suppliers
-      <span>{'One'}</span>
+      <ViewSuppliers />
+      <AddSupplier isOpen={isOpen} handleClose={handleClose} />
     </CustomLayout>
   );
 };

@@ -4,25 +4,31 @@ import { FC, ReactNode } from 'react';
 interface CustomFormProps extends FormProps {
   onFinish: FormProps['onFinish'];
   children: ReactNode;
+  labelColor?: string;
+  requiredMarkColor?: string;
 }
 
-const CustomForm: FC<CustomFormProps> = ({ onFinish, children, form }) => {
+const CustomForm: FC<CustomFormProps> = ({
+  onFinish,
+  children,
+  form,
+  labelColor,
+  requiredMarkColor,
+}) => {
   return (
     <ConfigProvider
       theme={{
         components: {
           Form: {
-            labelColor: 'var(--dark-white)',
-            labelRequiredMarkColor: 'var(--dark-white)',
+            labelColor: labelColor ? labelColor : 'var(--dark-white)',
+            labelRequiredMarkColor: requiredMarkColor
+              ? requiredMarkColor
+              : 'var(--dark-white)',
           },
           Input: {
             hoverBorderColor: 'var(--dark-primary-color)',
             activeBorderColor: 'var(--dark-primary-color)',
           },
-          // Button: {
-          //   defaultHoverBorderColor: 'var(--dark-primary-color)',
-          //   defaultActiveBorderColor: 'var(--dark-primary-color)',
-          // },
         },
       }}
     >
