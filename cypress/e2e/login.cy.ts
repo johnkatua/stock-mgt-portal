@@ -4,5 +4,7 @@ describe('Login', () => {
     cy.visit('/');
 
     cy.login(email, password);
+
+    cy.logout();
   });
 });

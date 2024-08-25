@@ -13,12 +13,19 @@ Cypress.Commands.add('login', (email: string, password: string) => {
   cy.url().should('include', '/dashboard');
 });
 
+Cypress.Commands.add('logout', () => {
+  cy.get('[data-testid=user-avatar]').trigger('mouseover');
+  cy.get('[data-testid=logout-btn]').should('be.visible');
+  cy.get('[data-testid=logout-btn]').click();
+});
+
 // Augmenting Cypress' Chainable interface
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Cypress {
     interface Chainable {
       login(email: string, password: string): Chainable<void>;
+      logout(): Chainable<void>;
     }
   }
 }
