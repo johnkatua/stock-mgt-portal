@@ -25,7 +25,11 @@ const LoginForm: FC<LoginFormProps> = ({ handleSubmit, form, loading }) => {
           },
         ]}
       >
-        <CustomInput placeholder='Email Address' style={{ padding: '8px' }} />
+        <CustomInput
+          placeholder='Email Address'
+          style={{ padding: '8px' }}
+          data-testid='email-input'
+        />
       </CustomFormItem>
       <CustomFormItem
         name='password'
@@ -41,6 +45,7 @@ const LoginForm: FC<LoginFormProps> = ({ handleSubmit, form, loading }) => {
           placeholder='Password'
           type='password'
           style={{ padding: '8px' }}
+          data-testid='password-input'
         />
       </CustomFormItem>
       <CustomFormItem>
@@ -54,6 +59,7 @@ const LoginForm: FC<LoginFormProps> = ({ handleSubmit, form, loading }) => {
             fontSize: '18px',
             color: 'var(--primary-color)',
           }}
+          data-testid='login-btn'
         />
       </CustomFormItem>
     </CustomForm>
