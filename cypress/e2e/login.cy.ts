@@ -1,11 +1,8 @@
 describe('Login', () => {
   it('Navigate to the application', () => {
+    const { email, password } = Cypress.env();
     cy.visit('/');
 
-    cy.get('[data-testid=email-input]').type('test.user@example.com');
-
-    cy.get('[data-testid=password-input]').type('');
-
-    cy.get('[data-testid=login-btn]').click();
+    cy.login(email, password);
   });
 });

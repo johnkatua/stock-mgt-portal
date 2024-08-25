@@ -7,4 +7,9 @@ export default defineConfig({
       // implement node event listeners here
     },
   },
+  env: {
+    SHORT_WAIT: 500,
+    MEDIUM_WAIT: 7000,
+  },
+  watchForFileChanges: false,
 });

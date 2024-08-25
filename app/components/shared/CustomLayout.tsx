@@ -34,6 +34,7 @@ const CustomLayout: FC<CustomLayoutProps> = ({ header, children }) => {
                 backgroundColor: 'var(--primary-color)',
                 color: 'var(--dark-white)',
               }}
+              data-testid='logout-btn'
             />
           }
         >
@@ -43,6 +44,7 @@ const CustomLayout: FC<CustomLayoutProps> = ({ header, children }) => {
               cursor: 'pointer',
             }}
             size={'large'}
+            data-testid='user-avatar'
           >
             JK
           </Avatar>
