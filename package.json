@@ -10,7 +10,8 @@
     "lint:fix": "eslint . --fix",
     "lint:strict": "eslint */**/*.{js,jsx,ts,tsx}",
     "format": "prettier --write */**/*.{js,jsx,ts,tsx,scss,css,md}",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "cy:open": "cypress open"
   },
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.1",
@@ -27,6 +28,7 @@
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^8.2.0",
     "@typescript-eslint/parser": "^8.2.0",
+    "cypress": "^13.13.3",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "eslint-config-prettier": "^9.1.0",

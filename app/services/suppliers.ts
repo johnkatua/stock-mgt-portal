@@ -5,17 +5,13 @@ interface SupplierResponse extends Supplier {
   _id: string;
 }
 
-interface SupplierCreationResponse {
-  msg: string;
-}
-
 const suppliersApi = api.injectEndpoints({
   endpoints: ({ query, mutation }) => ({
     getSuppliers: query<SupplierResponse[], void>({
       query: () => '/suppliers',
       providesTags: ['Supplier'],
     }),
-    addSupplier: mutation<SupplierCreationResponse, Supplier>({
+    addSupplier: mutation<{ msg: string }, Supplier>({
       query: (body) => ({
         url: '/suppliers',
         method: 'POST',
@@ -23,7 +19,18 @@ const suppliersApi = api.injectEndpoints({
       }),
       invalidatesTags: ['Supplier'],
     }),
+    deleteSupplier: mutation<{ msg: string }, string>({
+      query: (id) => ({
+        url: `/suppliers/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Supplier'],
+    }),
   }),
 });
 
-export const { useGetSuppliersQuery, useAddSupplierMutation } = suppliersApi;
+export const {
+  useGetSuppliersQuery,
+  useAddSupplierMutation,
+  useDeleteSupplierMutation,
+} = suppliersApi;
