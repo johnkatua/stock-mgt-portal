@@ -4,6 +4,7 @@ import { useGetSuppliersQuery } from '../services/suppliers';
 import CustomButton from '../components/shared/CustomButton';
 import { Supplier } from './AddSupplierForm';
 import { Space } from 'antd';
+import { primaryBtn } from '../styles/component.styles';
 
 const columns = [
   {
@@ -30,18 +31,12 @@ const columns = [
         <CustomButton
           text='Update'
           onClick={() => console.log(record)}
-          style={{
-            backgroundColor: 'var(--primary-color)',
-            color: 'var(--dark-white)',
-          }}
+          style={primaryBtn}
         />
         <CustomButton
           text='Delete'
           onClick={() => console.log(record)}
-          style={{
-            backgroundColor: 'var(--primary-color)',
-            color: 'var(--dark-white)',
-          }}
+          style={primaryBtn}
         />
       </Space>
     ),

@@ -4,6 +4,7 @@ import CustomForm from '../components/shared/CustomForm';
 import CustomFormItem from '../components/shared/CustomFormItem';
 import CustomInput from '../components/shared/CustomInput';
 import CustomButton from '../components/shared/CustomButton';
+import { primaryBtn } from '../styles/component.styles';
 
 export interface Supplier {
   supplier_name: string;
@@ -79,6 +80,7 @@ const AddSupplierForm: FC<AddSupplierFormProps> = ({
           text='Save Supplier Details'
           htmlType='submit'
           loading={loading}
+          style={primaryBtn}
         />
       </CustomFormItem>
     </CustomForm>
