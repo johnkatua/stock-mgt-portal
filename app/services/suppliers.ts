@@ -13,6 +13,7 @@ const suppliersApi = api.injectEndpoints({
   endpoints: ({ query, mutation }) => ({
     getSuppliers: query<SupplierResponse[], void>({
       query: () => '/suppliers',
+      providesTags: ['Supplier'],
     }),
     addSupplier: mutation<SupplierCreationResponse, Supplier>({
       query: (body) => ({
@@ -20,6 +21,7 @@ const suppliersApi = api.injectEndpoints({
         method: 'POST',
         body,
       }),
+      invalidatesTags: ['Supplier'],
     }),
   }),
 });
