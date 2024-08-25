@@ -48,7 +48,6 @@ const LoginForm: FC<LoginFormProps> = ({ handleSubmit, form, loading }) => {
           htmlType='submit'
           text='Login'
           loading={loading}
-          // disabled={true}
           style={{
             width: '100%',
             padding: '18px',
