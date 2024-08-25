@@ -1,6 +1,9 @@
 import React from 'react';
 import CustomTable from '../components/shared/CustomTable';
 import { useGetSuppliersQuery } from '../services/suppliers';
+import CustomButton from '../components/shared/CustomButton';
+import { Supplier } from './AddSupplierForm';
+import { Space } from 'antd';
 
 const columns = [
   {
@@ -18,6 +21,30 @@ const columns = [
   {
     title: 'Address',
     dataIndex: 'address',
+  },
+  {
+    title: 'Actions',
+    key: 'action',
+    render: (record: Supplier) => (
+      <Space>
+        <CustomButton
+          text='Update'
+          onClick={() => console.log(record)}
+          style={{
+            backgroundColor: 'var(--primary-color)',
+            color: 'var(--dark-white)',
+          }}
+        />
+        <CustomButton
+          text='Delete'
+          onClick={() => console.log(record)}
+          style={{
+            backgroundColor: 'var(--primary-color)',
+            color: 'var(--dark-white)',
+          }}
+        />
+      </Space>
+    ),
   },
 ];
 
