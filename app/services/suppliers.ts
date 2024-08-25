@@ -1,19 +1,27 @@
+import { Supplier } from '../suppliers/AddSupplierForm';
 import { api } from './api';
 
-interface Supplier {
+interface SupplierResponse extends Supplier {
   _id: string;
-  supplier_name: string;
-  contact_name: string;
-  phone: string;
-  address: string;
+}
+
+interface SupplierCreationResponse {
+  msg: string;
 }
 
 const suppliersApi = api.injectEndpoints({
-  endpoints: ({ query }) => ({
-    getSuppliers: query<Supplier[], void>({
+  endpoints: ({ query, mutation }) => ({
+    getSuppliers: query<SupplierResponse[], void>({
       query: () => '/suppliers',
+    }),
+    addSupplier: mutation<SupplierCreationResponse, Supplier>({
+      query: (body) => ({
+        url: '/suppliers',
+        method: 'POST',
+        body,
+      }),
     }),
   }),
 });
 
-export const { useGetSuppliersQuery } = suppliersApi;
+export const { useGetSuppliersQuery, useAddSupplierMutation } = suppliersApi;

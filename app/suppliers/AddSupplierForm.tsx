@@ -5,7 +5,7 @@ import CustomFormItem from '../components/shared/CustomFormItem';
 import CustomInput from '../components/shared/CustomInput';
 import CustomButton from '../components/shared/CustomButton';
 
-interface Supplier {
+export interface Supplier {
   supplier_name: string;
   contact_name: string;
   phone: string;
@@ -32,7 +32,7 @@ const AddSupplierForm: FC<AddSupplierFormProps> = ({
         rules={[
           {
             required: true,
-            message: 'Please enter your email address',
+            message: 'Please enter supplier name',
           },
         ]}
       >
