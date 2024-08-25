@@ -26,7 +26,12 @@ const AddSupplierForm: FC<AddSupplierFormProps> = ({
   loading,
 }) => {
   return (
-    <CustomForm onFinish={handleSubmit} form={form}>
+    <CustomForm
+      onFinish={handleSubmit}
+      form={form}
+      labelColor='var(--dark-black)'
+      requiredMarkColor='var(--dark-black)'
+    >
       <CustomFormItem
         name='supplier_name'
         label='Supplier Name'
