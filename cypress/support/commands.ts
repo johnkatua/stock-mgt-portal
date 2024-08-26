@@ -40,6 +40,15 @@ Cypress.Commands.add('createSupplier', (config) => {
   cy.wait(MEDIUM_WAIT);
 });
 
+Cypress.Commands.add('deleteSupplier', (name) => {
+  cy.get('table')
+    .contains('tr', name)
+    .should('be.visible')
+    .within(() => {
+      cy.get('td').eq(5).should('contain', 'Delete');
+    });
+});
+
 // Augmenting Cypress' Chainable interface
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -48,6 +57,7 @@ declare global {
       login(email: string, password: string): Chainable<void>;
       logout(): Chainable<void>;
       createSupplier(config: Supplier): Chainable<void>;
+      deleteSupplier(name: string): Chainable<void>;
     }
   }
 }
