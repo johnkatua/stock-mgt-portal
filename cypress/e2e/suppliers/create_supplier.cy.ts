@@ -1,6 +1,6 @@
 import supplierConfig from '../../fixtures/suppliers/create_supplier.json';
 
-describe('Login and create a supplier', () => {
+describe('Login create a supplier', () => {
   const { email, password } = Cypress.env();
   before(() => {
     cy.login(email, password);
@@ -8,6 +8,7 @@ describe('Login and create a supplier', () => {
 
   it('create a supplier', () => {
     cy.createSupplier(supplierConfig);
+    cy.deleteSupplier(supplierConfig.supplier_name);
   });
 
   after(() => {

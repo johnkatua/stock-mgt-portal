@@ -45,8 +45,11 @@ Cypress.Commands.add('deleteSupplier', (name) => {
     .contains('tr', name)
     .should('be.visible')
     .within(() => {
-      cy.get('td').eq(5).should('contain', 'Delete');
+      cy.get('td').eq(4).should('contain', 'Delete');
+      cy.get('[data-testid=delete-supplier-btn]').click();
     });
+  cy.wait(SHORT_WAIT);
+  cy.contains('Supplier Deleted Successfully!');
 });
 
 // Augmenting Cypress' Chainable interface
