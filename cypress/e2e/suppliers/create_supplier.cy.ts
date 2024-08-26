@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 import supplierConfig from '../../fixtures/suppliers/create_supplier.json';
 
 describe('Login and create a supplier', () => {
