@@ -42,7 +42,10 @@ const AddSupplierForm: FC<AddSupplierFormProps> = ({
           },
         ]}
       >
-        <CustomInput placeholder='Enter Supplier Name' />
+        <CustomInput
+          placeholder='Enter Supplier Name'
+          data-testid='supplier-name-input'
+        />
       </CustomFormItem>
       <CustomFormItem
         name='contact_name'
@@ -54,7 +57,10 @@ const AddSupplierForm: FC<AddSupplierFormProps> = ({
           },
         ]}
       >
-        <CustomInput placeholder='Enter Contact Person Name' />
+        <CustomInput
+          placeholder='Enter Contact Person Name'
+          data-testid='contact-name-input'
+        />
       </CustomFormItem>
       <CustomFormItem
         name='phone'
@@ -66,7 +72,10 @@ const AddSupplierForm: FC<AddSupplierFormProps> = ({
           },
         ]}
       >
-        <CustomInput placeholder='Enter Phone Number' />
+        <CustomInput
+          placeholder='Enter Phone Number'
+          data-testid='supplier-phone-input'
+        />
       </CustomFormItem>
       <CustomFormItem
         name='address'
@@ -78,7 +87,10 @@ const AddSupplierForm: FC<AddSupplierFormProps> = ({
           },
         ]}
       >
-        <CustomInput placeholder='Enter Physical Address' />
+        <CustomInput
+          placeholder='Enter Physical Address'
+          data-testid='supplier-address-input'
+        />
       </CustomFormItem>
       <CustomFormItem>
         <CustomButton
@@ -86,6 +98,7 @@ const AddSupplierForm: FC<AddSupplierFormProps> = ({
           htmlType='submit'
           loading={loading}
           style={primaryBtn}
+          data-testid='save-supplier-btn'
         />
       </CustomFormItem>
     </CustomForm>
