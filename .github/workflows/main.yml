@@ -16,3 +16,8 @@ jobs:
         with:
           build: npm run build
           start: npm start
+      - name: Save screenshots
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
