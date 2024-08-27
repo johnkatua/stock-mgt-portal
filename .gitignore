@@ -12,6 +12,7 @@
 cypress.env*
 mochawesome*
 screenshots/
+videos/
 
 # next.js
 /.next/

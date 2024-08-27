@@ -19,4 +19,6 @@ export default defineConfig({
     html: false,
     json: true,
   },
+  video: true,
+  videoCompression: true,
 });
