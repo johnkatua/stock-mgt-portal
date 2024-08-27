@@ -16,6 +16,7 @@ jobs:
         with:
           build: npm run build
           start: npm start
+          browser: chrome
       - name: Save screenshots
         uses: actions/upload-artifact@v3
         if: always()
