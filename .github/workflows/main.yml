@@ -8,10 +8,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Create env config json
+      - name: Write the cypress.env.json file
         run: |
-          touch cypress.env.json
-          echo '{"email":"${secrets.EMAIL}","password":${secrets.PASWORD}}' > cypress.env.json
+          echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
