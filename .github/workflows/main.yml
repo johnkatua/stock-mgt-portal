@@ -4,10 +4,14 @@ on: push
 
 jobs:
   cypress-run:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Create env config json
+        run: |
+          touch cypress.env.json
+          echo '{"email":"${secrets.EMAIL}","password":${secrets.PASWORD}}' > cypress.env.json
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
