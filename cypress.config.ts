@@ -12,4 +12,11 @@ export default defineConfig({
     MEDIUM_WAIT: 7000,
   },
   watchForFileChanges: false,
+  reporter: 'mochawesome',
+  reporterOptions: {
+    reportDir: 'cypress/results',
+    overwrite: false,
+    html: false,
+    json: true,
+  },
 });

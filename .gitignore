@@ -10,6 +10,7 @@
 /coverage
 /cypress/downloads
 cypress.env*
+mochawesome*
 
 # next.js
 /.next/
