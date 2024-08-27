@@ -11,6 +11,7 @@
 /cypress/downloads
 cypress.env*
 mochawesome*
+screenshots/
 
 # next.js
 /.next/
