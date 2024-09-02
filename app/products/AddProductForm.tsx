@@ -6,6 +6,7 @@ import CustomSelect from '../components/shared/CustomSelect';
 import { FormProps } from 'antd';
 import CustomButton from '../components/shared/CustomButton';
 import { primaryBtn } from '../styles/component.styles';
+import { Option } from '../lib/OptionSelector';
 
 export interface Product {
   product_name: string;
@@ -15,17 +16,12 @@ export interface Product {
   unit_price: string;
 }
 
-interface supplierOptionProps {
-  label: string;
-  value: string;
-}
-
 type HandleSubmitType = (_values: Product) => void;
 
 interface AddProductFormProps extends FormProps {
   handleSubmit: HandleSubmitType;
   loading: boolean;
-  supplierOptions: supplierOptionProps[];
+  supplierOptions: Option[];
 }
 
 const AddProductForm: FC<AddProductFormProps> = ({
@@ -35,7 +31,12 @@ const AddProductForm: FC<AddProductFormProps> = ({
   supplierOptions,
 }) => {
   return (
-    <CustomForm form={form} onFinish={handleSubmit}>
+    <CustomForm
+      form={form}
+      onFinish={handleSubmit}
+      labelColor='var(--dark-black)'
+      requiredMarkColor='var(--dark-black)'
+    >
       <CustomFormItem
         name='product_name'
         label='Product Name'
@@ -60,14 +61,23 @@ const AddProductForm: FC<AddProductFormProps> = ({
       >
         <CustomInput placeholder='Enter Unit Price' type='number' />
       </CustomFormItem>
+      <CustomFormItem
+        name='supplier_id'
+        label='Supplier'
+        rules={[
+          {
+            required: true,
+            message: 'Please select supplier',
+          },
+        ]}
+      >
+        <CustomSelect placeholder='Select Supplier' options={supplierOptions} />
+      </CustomFormItem>
       <CustomFormItem name='quantity_in_stock' label='Quantity In Stock'>
         <CustomInput placeholder='Enter quantity in stock' type='number' />
       </CustomFormItem>
       <CustomFormItem name='reorder_level' label='Reorder Level'>
         <CustomInput placeholder='Enter reorder level' type='number' />
-      </CustomFormItem>
-      <CustomFormItem name='supplier_id' label='Supplier'>
-        <CustomSelect placeholder='Select Supplier' options={supplierOptions} />
       </CustomFormItem>
       <CustomFormItem>
         <CustomButton
