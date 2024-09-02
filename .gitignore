@@ -8,6 +8,11 @@
 
 # testing
 /coverage
+/cypress/downloads
+cypress.env*
+mochawesome*
+screenshots/
+videos/
 
 # next.js
 /.next/

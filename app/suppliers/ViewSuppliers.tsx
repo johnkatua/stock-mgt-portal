@@ -8,7 +8,7 @@ import { Space, message } from 'antd';
 import { primaryBtn } from '../styles/component.styles';
 
 const ViewSuppliers = () => {
-  const { data: suppliers } = useGetSuppliersQuery();
+  const { data: suppliers, isLoading } = useGetSuppliersQuery();
   const [deleteSupplier] = useDeleteSupplierMutation();
 
   const handleDelete = async (id: string) => {
@@ -52,13 +52,16 @@ const ViewSuppliers = () => {
             text='Delete'
             onClick={() => handleDelete(_id)}
             style={primaryBtn}
+            data-testid='delete-supplier-btn'
           />
         </Space>
       ),
     },
   ];
 
-  return <CustomTable dataSource={suppliers} columns={columns} />;
+  return (
+    <CustomTable dataSource={suppliers} columns={columns} loading={isLoading} />
+  );
 };
 
 export default ViewSuppliers;

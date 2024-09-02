@@ -22,6 +22,7 @@ const Suppliers = () => {
               color: 'var(--dark-white)',
             }}
             onClick={() => setIsOpen(true)}
+            data-testid='add-supplier-btn'
           />
         </CustomPageTitle>
       }

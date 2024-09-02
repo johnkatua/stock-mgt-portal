@@ -35,16 +35,19 @@ const CustomSider = () => {
         key: '1',
         label: 'Dashboard',
         path: '/dashboard',
+        'data-testid': 'dashboard-link',
       },
       {
         key: 2,
         label: 'Products',
         path: '/products',
+        'data-testid': 'products-link',
       },
       {
         key: 3,
         label: 'Suppliers',
         path: '/suppliers',
+        'data-testid': 'suppliers-link',
       },
     ],
     [router]
