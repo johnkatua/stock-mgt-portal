@@ -28,6 +28,7 @@ const AddSupplier: FC<AddSupplierProps> = ({ isOpen, handleClose }) => {
   };
   return (
     <CustomModal
+      title={'Add Supplier'}
       open={isOpen}
       onCancel={handleClose}
       data-testid='add-supplier-modal'
