@@ -6,6 +6,7 @@ import CustomHeader from './CustomHeader';
 import CustomSider from './CustomSider';
 import { useRouter } from 'next/navigation';
 import CustomButton from './CustomButton';
+import { deleteSession } from '../../lib/session';
 
 const { Content } = Layout;
 
@@ -18,7 +19,8 @@ const CustomLayout: FC<CustomLayoutProps> = ({ header, children }) => {
   const router = useRouter();
 
   const handleLogout = () => {
-    router.push('/logout');
+    deleteSession();
+    router.push('/');
     localStorage.removeItem('stock_user');
   };
   return (
