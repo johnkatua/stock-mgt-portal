@@ -18,8 +18,8 @@ const CustomLayout: FC<CustomLayoutProps> = ({ header, children }) => {
   const router = useRouter();
 
   const handleLogout = () => {
-    router.push('/');
-    localStorage.removeItem('access_token');
+    router.push('/logout');
+    localStorage.removeItem('stock_user');
   };
   return (
     <Layout style={{ minHeight: '100vh' }}>

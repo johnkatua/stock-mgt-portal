@@ -19,14 +19,7 @@ export default async function AuthMiddleware(
     return NextResponse.next();
   }
 
-  const loggedInUser = localStorage.getItem('stock_user');
-
-  let token: string | null = null;
-
-  if (loggedInUser) {
-    const { access_token } = JSON.parse(loggedInUser);
-    token = access_token;
-  }
+  const token = req.cookies.get('access_token')?.value || null;
 
   if (!token && isProtectedRoute) {
     return NextResponse.redirect('/');
@@ -34,6 +27,12 @@ export default async function AuthMiddleware(
 
   if (token && isPublicRoute) {
     return NextResponse.redirect('/dashboard');
+  }
+
+  if (pathname === '/logout') {
+    const response = NextResponse.redirect('/');
+    response.cookies.delete('access_token');
+    return response;
   }
 
   // Allow access if no condition is met

@@ -25,6 +25,18 @@ const authApi = api.injectEndpoints({
           const { data } = await queryFulfilled;
           if (data) {
             localStorage.setItem('stock_user', JSON.stringify(data));
+
+            const loggedInUser = localStorage.getItem('stock_user');
+
+            let token: string | null = null;
+
+            if (loggedInUser) {
+              const { access_token } = JSON.parse(loggedInUser);
+              token = access_token;
+            }
+
+            document.cookie = `access_token=${token}; path=/`;
+            console.log(data.access_token);
           } else {
             console.error('No access token received.');
           }
