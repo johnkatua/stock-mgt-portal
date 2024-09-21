@@ -4,9 +4,30 @@
   margin: 0;
 }
 
+/*
+  Primary Color: #FB6E60 (Main accent color, vibrant and bold)
+
+  Lighter Shades:
+    #FFD4CC (Very light shade, suitable for backgrounds or highlights)
+    #FFB5A8 (Light shade, good for secondary backgrounds or subtle elements)
+    #FF9685 (Soft tone, can be used for hover effects or cards)
+
+  Darker Shades:
+    #E15D54 (Slightly darker, ideal for buttons or active states)
+    #C94D45 (Medium dark, can be used for headers or important text)
+    #A73F38 (Dark tone, suitable for text or contrast elements)
+    
+  Deepest Shade:
+    #862E2A (Darkest shade, great for footer, headers, or emphasis)
+*/
+
 :root {
-  --primary-color: #ea580c;
-  --dark-primary-color: #9a3412;
-  --dark-white: #fff7ed;
-  --dark-black: #0c0a09;
+  --primary-color: #fb6e60;
+  --lightest-color: #ffd4cc;
+  --light-color: #ffb5a8;
+  --lighter-color: #ff9685;
+  --dark-color: #e15d54;
+  --darker-color: #c94d45;
+  --darkest-color: #a73f38;
+  --deep-color: #862e2a;
 }
