@@ -74,6 +74,7 @@ const CustomLayout: FC<CustomLayoutProps> = ({ header, children }) => {
           <Content
             style={{
               backgroundColor: 'white',
+              minHeight: 'max-content',
               padding: '10px',
               borderRadius: '10px',
               boxShadow: '0 10px 15px -10px var(--primary-color)',

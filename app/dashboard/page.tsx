@@ -3,6 +3,7 @@ import CustomLayout from '../components/shared/CustomLayout';
 import CustomPageTitle from '../components/shared/CustomPageTitle';
 import Stats from './stats/Stats';
 import styles from './Dashboard.module.css';
+import LineChart from './Charts/LineChart';
 
 const Dashboard = () => {
   return (
@@ -10,16 +11,9 @@ const Dashboard = () => {
       <main className={styles.dashboardWrapper}>
         <Stats />
         <div>
-          <div>A</div>
-          <div>B</div>
-        </div>
-        <div>
-          <div>C</div>
-          <div>D</div>
-        </div>
-        <div>
-          <div>E</div>
-          <div>F</div>
+          <div>
+            <LineChart />
+          </div>
         </div>
       </main>
     </CustomLayout>
