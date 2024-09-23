@@ -2,5 +2,21 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
-  background-color: var(--primary-color);
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  background-color: var(--light-color);
+  border-radius: 5px;
+}
+
+.statCardIcon {
+  font-size: 18px;
+}
+
+.statCard:hover {
+  background-color: var(--lightest-color);
 }

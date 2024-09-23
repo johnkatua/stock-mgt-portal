@@ -1,20 +1,26 @@
 import React from 'react';
 import StatCard from './StatCard';
 import styles from './Stats.module.css';
+import { BsGraphUp, BsCartCheck, BsCashStack, BsBoxSeam } from 'react-icons/bs';
 
 const statItems = [
   {
-    icon: '1',
+    icon: <BsGraphUp />,
     title: 'Total Sales',
     amount: 3400,
   },
   {
-    icon: '2',
+    icon: <BsCartCheck />,
+    title: 'Total Sales',
+    amount: 3400,
+  },
+  {
+    icon: <BsCashStack />,
     title: 'Total Expenses',
     amount: 2500,
   },
   {
-    icon: '3',
+    icon: <BsBoxSeam />,
     title: 'Total Products',
     amount: 400,
   },
