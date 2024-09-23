@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'http://localhost:8081/api',
+  baseUrl: 'https://backend.lakehouseenterprise.biz/api',
   prepareHeaders: (headers) => {
     const loggedInUser = localStorage.getItem('stock_user');
     if (loggedInUser) {
