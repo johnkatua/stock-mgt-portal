@@ -8,7 +8,7 @@ interface SupplierResponse extends Supplier {
 const suppliersApi = api.injectEndpoints({
   endpoints: ({ query, mutation }) => ({
     getSuppliers: query<SupplierResponse[], void>({
-      query: () => '/suppliers',
+      query: () => '/suppliers/',
       providesTags: ['Supplier'],
     }),
     addSupplier: mutation<{ msg: string }, Supplier>({

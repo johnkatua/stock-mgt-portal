@@ -16,7 +16,7 @@ const productsApi = api.injectEndpoints({
       invalidatesTags: ['Product'],
     }),
     getProducts: query<ProductResponse[], void>({
-      query: () => '/products',
+      query: () => '/products/',
       providesTags: ['Product'],
     }),
   }),
