@@ -12,15 +12,17 @@ const CustomButton: FC<CustomButtonProps> = ({
 }) => {
   return (
     <ConfigProvider
-      theme={{
-        components: {
-          Button: {
-            defaultHoverBorderColor: 'var(--dark-primary-color)',
-            defaultActiveBorderColor: 'var(--dark-primary-color)',
-            colorBgContainerDisabled: 'var(--dark-white)',
-          },
-        },
-      }}
+      theme={
+        {
+          // components: {
+          //   Button: {
+          //     defaultHoverBorderColor: 'var(--dark-primary-color)',
+          //     defaultActiveBorderColor: 'var(--dark-primary-color)',
+          //     colorBgContainerDisabled: 'var(--dark-white)',
+          //   },
+          // },
+        }
+      }
     >
       <Button type={type} {...rest}>
         {text}

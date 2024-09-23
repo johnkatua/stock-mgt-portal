@@ -6,6 +6,7 @@ import CustomPageTitle from '../components/shared/CustomPageTitle';
 import CustomButton from '../components/shared/CustomButton';
 import AddProduct from './AddProduct';
 import ViewProducts from './ViewProducts';
+import { primaryBtn } from '../styles/component.styles';
 
 const Products = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +18,7 @@ const Products = () => {
         <CustomPageTitle title='Products'>
           <CustomButton
             text='Add Products'
-            style={{
-              backgroundColor: 'var(--primary-color)',
-              color: 'var(--dark-white)',
-            }}
+            style={primaryBtn}
             onClick={() => setIsOpen(true)}
           />
         </CustomPageTitle>

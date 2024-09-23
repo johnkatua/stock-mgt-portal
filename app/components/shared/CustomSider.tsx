@@ -1,57 +1,32 @@
-import { Menu, MenuProps } from 'antd';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import Sider from 'antd/es/layout/Sider';
-import React, { useEffect, useState, useMemo } from 'react';
-
-const pathMappers: Record<string, string> = {
-  '1': '/dashboard',
-  '2': '/products',
-  '3': '/suppliers',
-};
+import React from 'react';
 
 const CustomSider = () => {
   const router = useRouter();
-  // const pathname = usePathname();
-  const [activeKey, setActiveKey] = useState('');
+  const pathname = usePathname();
 
-  const handleNavigate = (key: string) => {
-    router.push(pathMappers[key]);
-    setActiveKey(key);
-  };
+  const items = [
+    {
+      key: '1',
+      label: 'Dashboard',
+      path: '/dashboard',
+      'data-testid': 'dashboard-link',
+    },
+    {
+      key: 2,
+      label: 'Products',
+      path: '/products',
+      'data-testid': 'products-link',
+    },
+    {
+      key: 3,
+      label: 'Suppliers',
+      path: '/suppliers',
+      'data-testid': 'suppliers-link',
+    },
+  ];
 
-  useEffect(() => {
-    // const mappedKey = pathMappers[activeKey];
-    if (activeKey) {
-      setActiveKey(activeKey);
-    }
-    console.log('here', activeKey);
-  }, [activeKey, router]);
-
-  console.log(activeKey);
-
-  const items: MenuProps['items'] = useMemo(
-    () => [
-      {
-        key: '1',
-        label: 'Dashboard',
-        path: '/dashboard',
-        'data-testid': 'dashboard-link',
-      },
-      {
-        key: 2,
-        label: 'Products',
-        path: '/products',
-        'data-testid': 'products-link',
-      },
-      {
-        key: 3,
-        label: 'Suppliers',
-        path: '/suppliers',
-        'data-testid': 'suppliers-link',
-      },
-    ],
-    [router]
-  );
   return (
     <Sider
       style={{
@@ -65,18 +40,32 @@ const CustomSider = () => {
         borderTopRightRadius: '10px',
       }}
     >
-      <Menu
-        items={items}
-        onClick={(e) => handleNavigate(e.key)}
-        mode='inline'
-        selectedKeys={[activeKey]}
-        defaultSelectedKeys={['1']}
+      <ul
         style={{
-          backgroundColor: 'var(--primary-color)',
-          color: 'var(--dark-white)',
-          margin: '12px 0',
+          padding: '10px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '5px',
         }}
-      />
+      >
+        {items.map((item) => (
+          <li
+            key={item.key}
+            style={{
+              padding: '8px 12px',
+              backgroundColor:
+                pathname === item.path ? 'var(--deep-color)' : '',
+
+              cursor: 'pointer',
+              borderRadius: '5px',
+              color: 'white',
+            }}
+            onClick={() => router.push(item.path)}
+          >
+            <span>{item.label}</span>
+          </li>
+        ))}
+      </ul>
     </Sider>
   );
 };
