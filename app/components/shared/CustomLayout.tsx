@@ -1,12 +1,13 @@
 'use client';
 
 import { Avatar, Layout, Popover } from 'antd';
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useEffect, useState } from 'react';
 import CustomHeader from './CustomHeader';
 import CustomSider from './CustomSider';
 import { useRouter } from 'next/navigation';
 import CustomButton from './CustomButton';
 import { deleteSession } from '../../lib/session';
+import { primaryBtn } from '../../styles/component.styles';
 
 const { Content } = Layout;
 
@@ -16,6 +17,7 @@ interface CustomLayoutProps {
 }
 
 const CustomLayout: FC<CustomLayoutProps> = ({ header, children }) => {
+  const [user, setUser] = useState<string | null>(null);
   const router = useRouter();
 
   const handleLogout = () => {
@@ -23,6 +25,15 @@ const CustomLayout: FC<CustomLayoutProps> = ({ header, children }) => {
     router.push('/');
     localStorage.removeItem('stock_user');
   };
+
+  const loggedInUser = localStorage.getItem('stock_user');
+
+  useEffect(() => {
+    if (loggedInUser) {
+      const data = JSON.parse(loggedInUser);
+      setUser(data?.user);
+    }
+  }, [loggedInUser]);
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <CustomHeader>
@@ -32,10 +43,7 @@ const CustomLayout: FC<CustomLayoutProps> = ({ header, children }) => {
             <CustomButton
               text='Logout'
               onClick={handleLogout}
-              style={{
-                backgroundColor: 'var(--primary-color)',
-                color: 'var(--dark-white)',
-              }}
+              style={primaryBtn}
               data-testid='logout-btn'
             />
           }
@@ -48,7 +56,7 @@ const CustomLayout: FC<CustomLayoutProps> = ({ header, children }) => {
             size={'large'}
             data-testid='user-avatar'
           >
-            JK
+            {user?.substring(0, 1).toUpperCase()}
           </Avatar>
         </Popover>
       </CustomHeader>
