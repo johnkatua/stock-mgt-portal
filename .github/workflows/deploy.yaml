@@ -31,7 +31,7 @@ jobs:
   #   CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
 
   build:
-    needs: test
+    # needs: test
     runs-on: ubuntu-latest
     outputs:
       tag: ${{ steps.tag.outputs.TAG }}
