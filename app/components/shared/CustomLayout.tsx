@@ -26,14 +26,17 @@ const CustomLayout: FC<CustomLayoutProps> = ({ header, children }) => {
     localStorage.removeItem('stock_user');
   };
 
-  const loggedInUser = localStorage.getItem('stock_user');
-
   useEffect(() => {
+    const loggedInUser =
+      typeof window !== 'undefined'
+        ? window.localStorage.getItem('stock_user')
+        : null;
+
     if (loggedInUser) {
       const data = JSON.parse(loggedInUser);
       setUser(data?.user);
     }
-  }, [loggedInUser]);
+  }, []);
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <CustomHeader>
