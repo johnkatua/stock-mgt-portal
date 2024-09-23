@@ -7,6 +7,9 @@ interface LoginRequest {
 
 interface LoginResponse {
   access_token: string;
+  token_type: string;
+  expires_in: number;
+  user: string;
 }
 
 const authApi = api.injectEndpoints({
@@ -20,9 +23,20 @@ const authApi = api.injectEndpoints({
       async onQueryStarted(_, { queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-          if (data && data.access_token) {
-            const access_token = data.access_token;
-            localStorage.setItem('access_token', access_token);
+          if (data) {
+            localStorage.setItem('stock_user', JSON.stringify(data));
+
+            const loggedInUser = localStorage.getItem('stock_user');
+
+            let token: string | null = null;
+
+            if (loggedInUser) {
+              const { access_token } = JSON.parse(loggedInUser);
+              token = access_token;
+            }
+
+            document.cookie = `access_token=${token}; path=/`;
+            console.log(data.access_token);
           } else {
             console.error('No access token received.');
           }

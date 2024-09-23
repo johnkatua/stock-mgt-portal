@@ -6,6 +6,7 @@ import CustomPageTitle from '../components/shared/CustomPageTitle';
 import CustomButton from '../components/shared/CustomButton';
 import ViewSuppliers from './ViewSuppliers';
 import AddSupplier from './AddSupplier';
+import { primaryBtn } from '../styles/component.styles';
 
 const Suppliers = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +18,7 @@ const Suppliers = () => {
         <CustomPageTitle title='Suppliers'>
           <CustomButton
             text='Add Supplier'
-            style={{
-              backgroundColor: 'var(--primary-color)',
-              color: 'var(--dark-white)',
-            }}
+            style={primaryBtn}
             onClick={() => setIsOpen(true)}
             data-testid='add-supplier-btn'
           />

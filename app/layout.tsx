@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import StoreProvider from './store/StoreProvider';
+import { ConfigProvider } from 'antd';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,7 +23,22 @@ export default function RootLayout({
       <body className={inter.className}>
         {/** Wrap children with AntdRegistry to avoid page flicker */}
         <AntdRegistry>
-          <StoreProvider>{children}</StoreProvider>
+          <ConfigProvider
+            theme={{
+              token: {
+                colorPrimary: 'var(--primary-color)',
+                colorPrimaryHover: 'var(--dark-color)',
+                colorPrimaryBgHover: 'green',
+                colorPrimaryBorder: 'var(--lighter-color)',
+                colorPrimaryActive: 'var(--dark-color)',
+                colorBorder: 'var(--lighter-color)',
+                controlOutlineWidth: 0,
+                colorPrimaryBorderHover: 'var(--lighter-color)',
+              },
+            }}
+          >
+            <StoreProvider>{children}</StoreProvider>
+          </ConfigProvider>
         </AntdRegistry>
       </body>
     </html>
