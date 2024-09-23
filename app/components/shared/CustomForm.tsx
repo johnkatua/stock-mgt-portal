@@ -8,30 +8,9 @@ interface CustomFormProps extends FormProps {
   requiredMarkColor?: string;
 }
 
-const CustomForm: FC<CustomFormProps> = ({
-  onFinish,
-  children,
-  form,
-  labelColor,
-  requiredMarkColor,
-}) => {
+const CustomForm: FC<CustomFormProps> = ({ onFinish, children, form }) => {
   return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Form: {
-            labelColor: labelColor ? labelColor : 'var(--dark-white)',
-            labelRequiredMarkColor: requiredMarkColor
-              ? requiredMarkColor
-              : 'var(--dark-white)',
-          },
-          Input: {
-            hoverBorderColor: 'var(--dark-primary-color)',
-            activeBorderColor: 'var(--dark-primary-color)',
-          },
-        },
-      }}
-    >
+    <ConfigProvider>
       <Form form={form} onFinish={onFinish} layout='vertical'>
         {children}
       </Form>

@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { FormProps } from 'antd';
+import { primaryBtn } from '../../styles/component.styles';
 import CustomForm from '../shared/CustomForm';
 import CustomFormItem from '../shared/CustomFormItem';
 import CustomInput from '../shared/CustomInput';
@@ -11,6 +12,13 @@ interface LoginFormProps extends FormProps {
   handleSubmit: HandleSubmitType;
   loading: boolean;
 }
+
+const loginBtnStyles = {
+  ...primaryBtn,
+  width: '100%',
+  padding: '18px',
+  fontSize: '18px',
+};
 
 const LoginForm: FC<LoginFormProps> = ({ handleSubmit, form, loading }) => {
   return (
@@ -53,12 +61,7 @@ const LoginForm: FC<LoginFormProps> = ({ handleSubmit, form, loading }) => {
           htmlType='submit'
           text='Login'
           loading={loading}
-          style={{
-            width: '100%',
-            padding: '18px',
-            fontSize: '18px',
-            color: 'var(--primary-color)',
-          }}
+          style={loginBtnStyles}
           data-testid='login-btn'
         />
       </CustomFormItem>

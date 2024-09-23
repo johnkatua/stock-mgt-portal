@@ -2,8 +2,8 @@
   display: grid;
   place-items: center;
   min-height: 100vh;
-  background-color: var(--primary-color);
-  color: var(--dark-white);
+  background-color: var(--lightest-color);
+  /* color: var(--dark-white); */
 }
 
 .loginWrapper {
